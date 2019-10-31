@@ -106,16 +106,19 @@ public class Jogador extends Circle implements Runnable{
             while(vivo){
 
                 String msg = entrada.readLine();
-                try{
-                    setMove(Move.valueOf(msg));
-                    saida.write("ok\n");
-                    saida.flush();
-                }catch (Exception e){
-                    saida.write("Inválido\n");
-                    saida.flush();
+                if(msg.equals("sair")){
+                    break;
+                }else {
+
+                    try {
+                        setMove(Move.valueOf(msg));
+                        saida.write("ok\n");
+                        saida.flush();
+                    } catch (Exception e) {
+                        saida.write("Inválido\n");
+                        saida.flush();
+                    }
                 }
-
-
             }
 
             saida.write("Morreu!! Game Over\n");
