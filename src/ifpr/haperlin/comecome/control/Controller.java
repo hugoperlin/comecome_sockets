@@ -112,6 +112,15 @@ public class Controller {
         Controlador.instance.limpa();
 
 
+        final StringBuffer sb = new StringBuffer();
+        sb.append("Jogadores OnLine:");
+        Controlador.instance.getJogadores().forEach(j->{
+            sb.append("\n"+j.getNome());
+        });
+
+        nomeJogadores.setText(sb.toString());
+
+
     }
 
 
